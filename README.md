@@ -12,6 +12,7 @@
 
 <a name="longreward"></a>
 ## 🤖️ LongReward
+![cof](https://github.com/user-attachments/assets/a9b06ba1-23ca-44b4-be98-dc2b59b5b84c)
 
 We open-source **LongReward** under `long_reward/auto_scorer.py`, a novel method that utilize an off-the-shelf LLM to automatically provide rewards for model responses in long-context scenarios, considering four human-valued dimensions: helpfulness, logicality, faithfulness, and completeness. Given a long-context-based model response, LongReward assigns a score ranging from 0 to 10 for each dimension, and takes their average as the final reward.
 
