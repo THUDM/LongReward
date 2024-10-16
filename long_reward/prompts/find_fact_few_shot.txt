@@ -1,0 +1,96 @@
+你将收到一个用户针对其上传文档的问题(由于文档过长，它不会显示给你)，一个AI文档问答助手的回答。你的任务是找出回答中的事实性陈述，这些事实性陈述一般对应回答中的一句话，必须是直接基于文档中的信息而得到的，而不是回答中的一个起始句、过渡句，也不是基于前面回答内容的总结、推理或推断。如果一个事实性陈述没有主语或者含有“他/她/它/这些/那些”等代词，你必须根据上下文为其添上主语或着进行指代消解。必须按以下格式输出：
+<statement>{陈述1}</statement>
+<statement>{陈述2}</statement>
+...
+
+下面是几个例子：
+
+[问题]
+甲骨文被发现后,对中国历史研究产生了哪些深远影响?请列举出至少3点。
+
+[助手的答案开始]
+根据文档，甲骨文被发现后,对中国历史研究产生了以下深远影响:
+
+1. 证实并补充了《史记·殷本纪》关于商代历史的记载。通过甲骨文中对商代先王先公的记载,证实了《史记》作为历史典籍的可靠性。
+
+2. 将中国有考据可信的历史提前了一千年。过去认为中国可信历史始于西周,甲骨文的发现证实了商朝这一存在了600多年的朝代。
+
+3. 作为最早的文字记载,甲骨文内容丰富,记录了当时的政治、经济、文化、社会生活等,是研究中国早期历史的重要第一手资料。
+
+4. 甲骨文的大量单字为研究中国文字起源和演变提供了珍贵资料,也启发并修正了后世的文字学著作如《说文解字》。
+
+总的来说，甲骨文的发现对中国历史研究产生了多方面且非常深刻的影响。
+
+
+[助手的答案结束]
+
+[事实性陈述]
+<statement>甲骨文的发现证实并补充了《史记·殷本纪》关于商代历史的记载。</statement>
+<statement>通过甲骨文中对商代先王先公的记载,证实了《史记》作为历史典籍的可靠性。</statement>
+<statement>甲骨文的发现将中国有考据可信的历史提前了一千年。</statement>
+<statement>过去认为中国可信历史始于西周,甲骨文的发现证实了商朝这一存在了600多年的朝代。</statement>
+<statement>作为最早的文字记载,甲骨文内容丰富,记录了当时的政治、经济、文化、社会生活等,是研究中国早期历史的重要第一手资料。</statement>
+<statement>甲骨文的大量单字为研究中国文字起源和演变提供了珍贵资料,也启发并修正了后世的文字学著作如《说文解字》。</statement>
+
+[问题]
+How many members of the board of directors chose not to receive their cash retainer for 3 months in fiscal 2020, and what was the total foregone retainer amount in USD?
+
+[助手的答案开始]
+Based on the information in the doc, the following relevant details are noted:
+
+- Members of the board of directors chose to not receive their cash retainer for 3 months in fiscal 2020. 
+
+- The board of directors forwent 3 months of their cash retainer to help establish the We Stand Together Fund for employees facing COVID-19 related hardships.
+
+- There are 11 members of the board of directors listed in the table under "Fiscal 2020 Director Compensation".
+
+- The annual cash retainer for board members was $75,000.
+
+Therefore, the number of members of the board of directors who chose not to receive their cash retainer for 3 months in fiscal 2020 is 11. 
+
+With 11 directors foregoing their $75,000 annual retainer for 3 months, the total foregone retainer amount is:
+
+- Annual retainer per director: $75,000
+- Number of directors: 11
+- Months of retainer foregone: 3 
+- $75,000 * 11 directors * (3/12 months) = $206,250
+
+So the total foregone retainer amount in USD is $206,250.
+[助手的答案结束]
+
+[事实性陈述]
+<statement>Members of the board of directors chose to not receive their cash retainer for 3 months in fiscal 2020.</statement>
+<statement>The board of directors forwent 3 months of their cash retainer to help establish the We Stand Together Fund for employees facing COVID-19 related hardships.</statement>
+<statement>There are 11 members of the board of directors listed in the table under "Fiscal 2020 Director Compensation".</statement>
+<statement>The annual cash retainer for board members was $75,000.</statement>
+
+[问题]
+What are some of the major sources of pollution threatening the ecological safety of Lake Baikal
+
+[助手的答案开始]
+Lake Baikal is the deepest and largest freshwater lake in the world. Some of the major pollution threats its ecological safety include:
+
+1. Industrial and municipal waste discharges into the lake's tributaries and the lake itself. The major polluters are cities and towns along the Selenga River and other tributaries in the lake's basin.
+
+2. Oil spills and hydrocarbon pollution. Accidental spills and poor storage practices at industrial sites have led to pollution of the Selenga River and other waterways.
+
+Therefore, the major sources of pollution threatening the ecological safety of Lake Baikal includes (1) industrial and municipal waste discharges; (2)  oil spills and hydrocarbon pollution.
+[助手的答案结束]
+
+[事实性陈述]
+<statement>Lake Baikal is the deepest and largest freshwater lake in the world.</statement>
+<statement>Industrial and municipal waste discharges into the lake's tributaries and the lake itself are a major threat to the Lake Baikal' ecological safety.</statement>
+<statement>The major polluters are cities and towns along the Selenga River and other tributaries in the lake's basin.</statement>
+<statement>Oil spills and hydrocarbon pollution are are a major threat to the Lake Baikal' ecological safety.</statement>
+<statement>Accidental spills and poor storage practices at industrial sites have led to pollution of the Selenga River and other waterways.</statement>
+
+现在，请根据指令和上面的例子处理以下AI助手的回答：
+
+[问题]
+<<question>>
+
+[助手的答案开始]
+<<answer>>
+[助手的答案结束]
+
+[事实性陈述]

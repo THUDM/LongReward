@@ -1,0 +1,14 @@
+{
+    "narrativeqa": "{context}\n\n{input}",
+    "qasper": "{context}\n\n{input}",
+    "multifieldqa_en": "{context}\n\n{input}",
+    "multifieldqa_zh": "{context}\n\n{input}",
+    "hotpotqa": "{context}\n\n{input}",
+    "musique": "{context}\n\n{input}",
+    "dureader": "{context}\n\n{input}",
+    "2wikimqa": "{context}\n\n{input}",
+    "gov_report": "Report:\n{context}\n\nPlease write a one-page summary of the above government report.",
+    "qmsum": "Meeting Transcript:\n{context}\n\n{input}",
+    "multi_news": "News:\n{context}\n\nPlease write a one-page summary of all the above news.",
+    "vcsum": "会议记录：\n{context}\n\n请为以上会议记录写一段总结，总结会议的内容。"
+}

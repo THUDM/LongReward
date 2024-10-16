@@ -1,0 +1,17 @@
+You will receive a document and a question, and you need to extract all the information relevant to the question from the document in the following format: 
+"""
+1. ...
+2. ...
+3. ...
+...
+""" 
+If there is no relevant information, you must output "No relevant information".
+
+[Document Start]
+<<context>>
+[Document End]
+
+[Question]
+<<question>>
+
+[Relevant Information]

@@ -1,0 +1,75 @@
+你是一个擅长评价文本质量的专家。
+你将收到一个用户针对其上传文档的问题、一个AI助手基于该文档的回答中的一句事实性陈述, 和文档中的几个文段（由于文档过长，无法将文档全部展示给你）。您的任务是仔细评估该陈述是否被这些文段所支持。 请使用以下等级来生成评分：
+- [[Fully supported]] - 陈述中的几乎所有信息均被文段支持，或从文段中提取。这仅适用于陈述和部分文段内容几乎完全相同的情况。
+- [[Partially supported]] - 陈述中多于一半的内容被文段支持，但有少部分内容未在文段中出现或与文段不符。例如，如果陈述中有两个要点而文段仅支持其中之一，则应视为[Partially supported]。
+- [[No support]] - 陈述基本与文段无关，或陈述中的大部分要点与文段内容不一致。
+确保在评估时不使用文段外的任何其他信息或知识，只检查陈述是否由文段支持。
+你必须先给出分析，再给出评分。
+
+下面是几个例子：
+
+[陈述]
+过去认为中国可信历史始于西周,甲骨文的发现证实了商朝这一长达3000多年的朝代。
+
+[文段1]
+殷墟是商朝第10代王盘庚于公元前1318年，把都城从奄（今山东曲阜附近）迁到殷（小屯村一带），从此历经至8代12王，在此建都达273年之久。这些研究成果，把中国有考据可信的历史提早了一千年。 从一片殷商甲骨上文字的发现和认定，由此发展到肯定了一个距今3000多年、长达600多年的朝代，这是多么了不起的发现！这样就把本世纪20年代一些学者认为中国的可信历史始于西周的“疑古”思潮，予以彻底的否定。 甲骨文的文字学价值 甲骨文在汉字漫长的发展历史上具有极其重要的地位，作为现代汉字的鼻祖是当之无愧的。
+
+[文段2]
+涉及天文、历法、医药等科学技术。从甲骨文已识别的约2500个单字来看，它已具备了“象形、会意、形声、指事、转注、假借”的造字方法，展现了中国文字的独特魅力。中国商代和西周早期（约公元前16～前10世纪）以龟甲、兽骨为载体的文献。是已知汉语文献的最早形态。刻在甲骨上的文字早先曾称为契文、 甲骨刻辞、卜辞、龟版文、殷墟文字等，现通称甲骨文。
+
+[文段3]
+甲骨文，是中华道统的文字之一。最早被河南安阳小屯村的村民们找到，当时他们还不知道这是古代的遗物，只当做包治百病的药材“龙骨”使用，把许多刻着甲骨文的龟甲兽骨磨成粉末，浪费了许多极为有价值的文物，后来，晚清官员、金石学家王懿荣于光绪二十五年（1899年）治病时从来自河南安阳的甲骨上发现了甲骨文。安阳城西北的小屯村，是商晚期国都遗址“殷墟”的所在地。百余年来，当地通过考古发掘及其他途径出土的甲骨已超过154600块。
+
+[分析]
+陈述中“过去认为中国可信历史始于西周”和“甲骨文的发现证实了商朝”都能被文段1支持，但陈述中说商朝长达3000年，与文段1中“距今3000多年、长达600多年”不符，所以评分应该为[[Partially supported]]。
+
+评分: [[Partially supported]]
+
+[陈述]
+The board gave up a three-month cash retaine to help establish the Together We Stand fund to help employees facing COVID-19-related difficulties.
+
+[文段1]
+Annual Meeting of ShareholdersNew and re-nominated directors are evaluated by the corporate responsibility, sustainability and governance committee of our board of directors using information available about the candidate, criteria and procedures included in our \"guidelines for evaluating director candidates.\"As the term for our Class II directors is expiring at the 2021 annual meeting
+
+[文段2]
+current 2014 equity incentive plan. These annual awards are generally granted after the annual meeting of shareholders each year if the director continues to be a member of our board of directors.Non-employee directors who join our board of directors other than in connection with an annual meeting generally receive these awards on a pro-rata basis. 
+
+[文段3]
+financial statements contained in our Annual Report on Form 10-K for the fiscal year ended January 31, 2021 for a discussion of all assumptions made by us in determining the FASB ASC Topic 718 values of our equity awards.The board of directors forwent 3 months of their cash retainer to help establish the We Stand Together Fund for employees facing COVID-19 related hardships.Ms. Gibson joined the board of
+
+[分析]
+文段3中提到“The board of directors forwent 3 months of their cash retainer to help establish the We Stand Together Fund for employees facing COVID-19 related hardships”, 这与陈述内容完全吻合，所以评分为[[Fully supported]]。
+
+评分: [[Fully supported]]
+
+[陈述]
+the RBF kernel often had too wide length-scales resulting in underfitting the data.
+
+[文段1]
+1610 and 2000. The sunspots dataset includes monthly mean total sunspot number, defined simply as the arithmetic mean of daily sunspot number within the month. The timespan measured is from February 1749 until August 2018. Resulting GP posteriors on all datasets with the different kernels are depicted in Figure 10. 
+
+[文段2]
+RBF kernel cannot learn any longer range structures (e.g. periodicities), which the spectral mixtures are capable of. On the general regression benchmarks, Protein and Power, the Neural-GSM kernel performs the best.\n\nThe proposed Neural-GSM kernel is also approximately twice as fast in terms of computation needed per iteration within the variational inference framework, compared with the previously proposed GP-parameterized GSM kernel.
+
+[文段3]
+Kernels that are both stationary and monotonic, such as the Gaussian and Matérn kernels, can learn neither input-dependent function dynamics nor long-range correlations within the input space. Non-monotonic and non-stationary functions are common in realistic signal processing, time series analysis, bioinformatics, and in geostatistics applications.
+
+[文段4]
+This achieves both better performance in terms of log-likelihood and errors, as well as being faster in wall-time per iteration, during optimisation of the kernel parameters. We show and compare the expressivity and the performance of the proposed kernel with experiments on time series from two solar activity datasets as well as motion capture data.
+
+[文段5]
+These types of non-stationary kernels are a good match for functions with transitions in their dynamics, yet are unsuitable for modelling non-monotonic properties.\n\nGeneralised Spectral Mixture (GSM) kernel\n\npresented the generalised spectral mixture (GSM) kernel, that can be seen as a generalisation of the spectral mixture (SM) kernel of.
+
+[分析]
+没有任何一个文段提到RBF核长度尺度太宽导致其对数据拟合不足，所以评分应为[[No Support]]。
+
+评分: [[No Support]]
+
+现在，请参考评分原则和上面的例子给以下陈述打分：
+
+[陈述]
+<<statement>>
+
+<<context>>
+
+[分析]

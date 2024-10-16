@@ -1,0 +1,1 @@
+Please download LongBench datasets from [here](https://huggingface.co/datasets/THUDM/LongBench/resolve/main/data.zip) and place the unziped datasets under  `./datasets`, then running the following scripts: `1_aggregate_data.py`, `2_pred.py`, `3_eval.py`. The evaluation results will be stored in `./scores`.
