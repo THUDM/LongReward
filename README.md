@@ -65,6 +65,7 @@ We provide our evaluation code for [LongBench](https://github.com/THUDM/LongBenc
 To reproduce our results on other benchmarks, we refer to the code in [FastChat](https://github.com/lm-sys/FastChat) and [alpaca_eval](https://github.com/tatsu-lab/alpaca_eval) for evaluating on MT-Bench and AlpacaEval2.
 
 Here are our evaluation results:
+![eval](https://github.com/user-attachments/assets/c8fc4503-42a1-4081-95b7-7d560f2ec366)
 
 
 <a name="citation"></a>
