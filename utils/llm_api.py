@@ -15,7 +15,7 @@ API_URLS = {
     'openai': 'https://api.openai.com/v1/chat/completions',
     'zhipu': 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
     "anthropic": 'https://api.anthropic.com/v1/messages',
-    'vllm': 'http://172.18.192.129:8000/v1/chat/completions',
+    'vllm': 'http://127.0.0.1:8000/v1/chat/completions',
 }
 
 def query_llm(messages, model, temperature=1.0, max_new_tokens=1024, stop=None, return_usage=False):
