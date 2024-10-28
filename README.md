@@ -7,13 +7,13 @@
 ## 🔍 Table of Contents
 
 - [🤖️ LongReward](#longreward)
-- [⚙️ Released Datasets & Models](#model)
+- [⚙️ Datasets & Models](#released-datasets--models)
+- [🌟 Quick Start](#quickstart)
 - [📊 Evaluation](#evaluation)
 - [📝 Citation](#citation)
+- [📍 License](#license)
 
-<a name="longreward"></a>
-
-## 🤖️ LongReward
+## LongReward
 
 ![cof](https://github.com/user-attachments/assets/a9b06ba1-23ca-44b4-be98-dc2b59b5b84c)
 
@@ -28,7 +28,7 @@ results will be stored in `./data`.
 
 <a name="model"></a>
 
-## ⚙️ Released Datasets & Models
+## Released Datasets & Models
 
 ### SFT Datasets & SFT Models
 
@@ -55,56 +55,60 @@ our paper.
 
 Here is the full list of datasets and models we released:
 
-| Name                                | Download Path                                                                                                                                                                                                                              |
-|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LongReward-10k (SFT & DPO Datasets) | [🤗 HuggingFace](https://huggingface.co/datasets/THUDM/LongReward-10k)                                                                                                                                                                     |
-| LongReward-glm4-9b-SFT              | [🤗 HuggingFace](https://huggingface.co/NeoZ123/LongReward-glm4-9b-SFT)                                                                                                                                                                    |
-| LongReward-glm4-9b-DPO              | [🤗 HuggingFace](https://huggingface.co/THUDM/LongReward-glm4-9b-DPO), [🤖ModelScope](https://modelscope.cn/models/ZhipuAI/LongReward-glm4-9b-DPO),[🟣 WiseModel](https://wisemodel.cn/models/ZhipuAI/LongReward-glm4-9b-dpo)              |
-| LongReward-llama3.1-8b-SFT          | [🤗 HuggingFace](https://huggingface.co/NeoZ123/LongReward-llama3.1-8b-SFT)                                                                                                                                                                |
-| LongReward-llama3.1-8b-DPO          | [🤗 HuggingFace](https://huggingface.co/THUDM/LongReward-llama3.1-8b-DPO), [🤖ModelScope](https://modelscope.cn/models/ZhipuAI/LongReward-llama3.1-8b-dpo), [🟣 WiseModel](https://wisemodel.cn/models/ZhipuAI/LongReward-llama3.1-8b-dpo) |
+| Name                                | Download Path                                                                                                                                                                                                                               |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| LongReward-10k (SFT & DPO Datasets) | [🤗 HuggingFace](https://huggingface.co/datasets/THUDM/LongReward-10k)                                                                                                                                                                      |
+| LongReward-glm4-9b-SFT              | [🤗 HuggingFace](https://huggingface.co/NeoZ123/LongReward-glm4-9b-SFT)                                                                                                                                                                     |
+| LongReward-glm4-9b-DPO              | [🤗 HuggingFace](https://huggingface.co/THUDM/LongReward-glm4-9b-DPO), [🤖 ModelScope](https://modelscope.cn/models/ZhipuAI/LongReward-glm4-9b-DPO), [🟣 WiseModel](https://wisemodel.cn/models/ZhipuAI/LongReward-glm4-9b-dpo)             |
+| LongReward-llama3.1-8b-SFT          | [🤗 HuggingFace](https://huggingface.co/NeoZ123/LongReward-llama3.1-8b-SFT)                                                                                                                                                                 |
+| LongReward-llama3.1-8b-DPO          | [🤗 HuggingFace](https://huggingface.co/THUDM/LongReward-llama3.1-8b-DPO), [🤖 ModelScope](https://modelscope.cn/models/ZhipuAI/LongReward-llama3.1-8b-dpo), [🟣 WiseModel](https://wisemodel.cn/models/ZhipuAI/LongReward-llama3.1-8b-dpo) |
 
-Try our model:
+## QuickStart
+
+Try our model with following step:
+
+1. install requirements
 
 ```shell
 pip install -r requirement.txt
 ```
 
-```python
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+2. run with model
 
-MODEL_PATH = "THUDM/LongReward-glm4-9b-DPO"
-device = "cuda" if torch.cuda.is_available() else "cpu"
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
-context = '''
-W. Russell Todd, 94, United States Army general (b. 1928). February 13. Tim Aymar, 59, heavy metal singer (Pharaoh) (b. 1963). Marshall \"Eddie\" Conway, 76, Black Panther Party leader (b. 1946). Roger Bonk, 78, football player (North Dakota Fighting Sioux, Winnipeg Blue Bombers) (b. 1944). Conrad Dobler, 72, football player (St. Louis Cardinals, New Orleans Saints, Buffalo Bills) (b. 1950). Brian DuBois, 55, baseball player (Detroit Tigers) (b. 1967). Robert Geddes, 99, architect, dean of the Princeton University School of Architecture (1965–1982) (b. 1923). Tom Luddy, 79, film producer (Barfly, The Secret Garden), co-founder of the Telluride Film Festival (b. 1943). David Singmaster, 84, mathematician (b. 1938).
-'''
-query = "What was Robert Geddes' profession?"
-prompt = context + '\n\n' + query
-inputs = tokenizer.apply_chat_template([{"role": "user", "content": prompt}],
-                                       add_generation_prompt=True,
-                                       tokenize=True,
-                                       return_tensors="pt",
-                                       return_dict=True
-                                       )
-inputs = inputs.to(device)
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_PATH,
-    torch_dtype=torch.bfloat16,
-    low_cpu_mem_usage=True,
-    trust_remote_code=True,
-    device_map="auto"
-).eval()
-gen_kwargs = {"max_length": 2500, "do_sample": True, "top_k": 1}
-with torch.no_grad():
-    outputs = model.generate(**inputs, **gen_kwargs)
-    outputs = outputs[:, inputs['input_ids'].shape[1]:]
-    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+MODEL_PATH = 'THUDM/LongReward-glm4-9b-DPO'
+
+tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, device_map="auto")
+
+message = [
+    {
+        "role": "user",
+        "content": "W. Russell Todd, 94, United States Army general (b. 1928). February 13. Tim Aymar, 59, heavy metal singer (Pharaoh) (b. 1963). Marshall \"Eddie\" Conway, 76, Black Panther Party leader (b. 1946). Roger Bonk, 78, football player (North Dakota Fighting Sioux, Winnipeg Blue Bombers) (b. 1944). Conrad Dobler, 72, football player (St. Louis Cardinals, New Orleans Saints, Buffalo Bills) (b. 1950). Brian DuBois, 55, baseball player (Detroit Tigers) (b. 1967). Robert Geddes, 99, architect, dean of the Princeton University School of Architecture (1965–1982) (b. 1923). Tom Luddy, 79, film producer (Barfly, The Secret Garden), co-founder of the Telluride Film Festival (b. 1943). David Singmaster, 84, mathematician (b. 1938). \n\n What was Robert Geddes' profession?"
+    }
+]
+
+inputs = tokenizer.apply_chat_template(
+    message,
+    return_tensors='pt',
+    add_generation_prompt=True,
+    return_dict=True,
+).to(model.device)
+
+input_len = inputs['input_ids'].shape[1]
+generate_kwargs = {
+    "input_ids": inputs['input_ids'],
+    "attention_mask": inputs['attention_mask'],
+    "max_new_tokens": 128,
+    "do_sample": False,
+}
+out = model.generate(**generate_kwargs)
+print(tokenizer.decode(out[0][input_len:], skip_special_tokens=True))
 ```
 
-<a name="evaluation"></a>
-
-## 📊 Evaluation
+## Evaluation
 
 We provide our evaluation code for [LongBench](https://github.com/THUDM/LongBench)
 and [LongBench-Chat](https://github.com/THUDM/LongAlign) under `evaluation/`. Details can be found in
@@ -115,13 +119,13 @@ To reproduce our results on other benchmarks, we refer to the code in [FastChat]
 and [alpaca_eval](https://github.com/tatsu-lab/alpaca_eval) for evaluating on MT-Bench and AlpacaEval2.
 
 Here are our evaluation results:
+
 ![eval](https://github.com/user-attachments/assets/c8fc4503-42a1-4081-95b7-7d560f2ec366)
 
-<a name="citation"></a>
 
-## 📝 Citation
+## Citation
 
-If you find our work useful, please consider citing LongReward:
+If you find our work helpful, please consider citing the following paper:
 
 ```
 @article{zhang2024longreward,
@@ -132,3 +136,13 @@ with AI Feedback}
   year={2024}
 }
 ```
+
+## License
+
++ The use of GLM-4 model weights must follow
+  the [Model License](https://huggingface.co/THUDM/glm-4-9b/blob/main/LICENSE).
+
++ The code in this open source repository follows the [Apache 2.0](LICENSE) license.
+
+Please strictly follow the open source license.
+
