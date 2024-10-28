@@ -1,7 +1,4 @@
-import os, json
 from utils.zhipu_embedding import ZhipuEmbeddings
-import requests
-import traceback
 from transformers import AutoTokenizer
 import torch
 import re
@@ -19,7 +16,6 @@ def text_split_by_punctuation(original_text, return_dict=False):
 
     separated = custom_sent_tokenizer.tokenize(text)
     separated = sum([re.split(punctuations, s) for s in separated], [])
-    # Put the punctuations back to the sentence
     for i in range(1, len(separated)):
         if re.match(punctuations, separated[i]):
             separated[i-1] += separated[i]
@@ -110,8 +106,6 @@ def batch_search(queries, contexts, k=20):
     c, q = c_res['embed'], q_res['embed']
     if c.device != q.device:
         c, q = c.cpu(), q.cpu()
-    # print(c.shape)
-    # print(q.shape)
     c = c / c.norm(dim=1, keepdim=True)
     q = q / q.norm(dim=1, keepdim=True)
     score = q @ c.T
