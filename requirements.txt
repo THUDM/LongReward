@@ -1,0 +1,6 @@
+transformers>=4.46.0
+tqdm
+jsonlines
+torch
+numpy
+requests

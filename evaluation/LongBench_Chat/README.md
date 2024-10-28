@@ -1,1 +1,0 @@
-Simply run `eval.py` to get the evaluation results. The evaluation results will be stored in `./scores`.

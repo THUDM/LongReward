@@ -1,18 +1,21 @@
-import requests
-import time, os, json
+"""
+Simply run `eval.py` to get the evaluation results. The evaluation results will be stored in `./scores`.
+
+python eval.py
+
+"""
+import sys
+sys.path.append('../../')
+import os, json
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from transformers.generation.utils import GenerationConfig
 import torch
 import numpy as np
 import random
 import codecs
-import argparse
 from copy import deepcopy
 from tqdm import tqdm
 import traceback
 import re
-import sys
-sys.path.append('../../')
 from utils.llm_api import query_llm
 
 model_path = "THUDM/LongReward-glm4-9b-DPO" # THUDM/LongReward-llama3.1-8b-DPO
