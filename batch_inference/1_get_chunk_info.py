@@ -2,7 +2,6 @@ import sys
 import random
 import json, jsonlines
 from multiprocessing import Pool
-import multiprocessing
 from tqdm import tqdm
 import traceback
 import os

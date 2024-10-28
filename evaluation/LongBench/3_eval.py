@@ -3,9 +3,7 @@ from tqdm import tqdm
 import numpy as np
 from multiprocessing import Pool
 import traceback
-import requests
 import re
-import random
 import sys
 sys.path.append('../../')
 from utils.llm_api import query_llm

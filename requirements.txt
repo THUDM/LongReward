@@ -1,6 +1,6 @@
 transformers>=4.46.0
-tqdm
-jsonlines
-torch
-numpy
-requests
+tqdm>=4.66.5
+jsonlines>=4.0.0
+numpy>=2.1.2
+requests>=2.32.3
+torch>=2.5.0

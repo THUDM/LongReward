@@ -1,7 +1,5 @@
 import os, sys
 import json, jsonlines
-from json import JSONDecodeError
-from multiprocessing import Pool
 import multiprocessing
 from tqdm import tqdm
 import traceback

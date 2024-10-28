@@ -65,6 +65,10 @@ Here is the full list of datasets and models we released:
 
 Try our model:
 
+```shell
+pip install -r requirement.txt
+```
+
 ```python
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM

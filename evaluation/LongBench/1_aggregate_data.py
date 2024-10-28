@@ -1,4 +1,4 @@
-import os, json, jsonlines
+import json, jsonlines
 
 datasets = ['narrativeqa', 'qasper', 'multifieldqa_en', 'multifieldqa_zh', 'hotpotqa', 'musique', 'dureader', '2wikimqa', 'gov_report', 'qmsum', 'multi_news', 'vcsum']
 dataset2prompt = json.load(open("./dataset2prompt.json", "r"))
