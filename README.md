@@ -131,7 +131,7 @@ If you find our work helpful, please consider citing the following paper:
 @article{zhang2024longreward,
   title = {LongReward: Improving Long-context Large Language Models
 with AI Feedback} 
-  author={Jiajie Zhang and Zhongni Hou and Xin Lv and Shulin Cao and Zhenyu Hou and Yilin Niu and Lei Hou and Lei Hou and Yuxiao Dong and Ling Feng and Juanzi Li},
+  author={Jiajie Zhang and Zhongni Hou and Xin Lv and Shulin Cao and Zhenyu Hou and Yilin Niu and Lei Hou and Yuxiao Dong and Ling Feng and Juanzi Li},
   journal={arXiv preprint arXiv:2410.21252},
   year={2024}
 }
